@@ -1,0 +1,50 @@
+[
+  {
+    "tableName": "Las Vegas",
+    "seatList": [
+      { "name": "Melvina Veerabudren" },
+      { "name": "Parys Krobo" },
+      { "name": "Parys Krobo" }
+    ]
+  },
+  {
+    "tableName": "London",
+    "seatList": [
+      { "name": "Melvina Veerabudren" },
+      { "name": "Philippe Akono" },
+      { "name": "Trisha Veerabudren" }
+    ]
+  },
+  {
+    "tableName": "Madrid",
+    "seatList": [
+      { "name": "Dashini Veerabudren" },
+      { "name": "Oyilen Veerabudren" },
+      { "name": "Manisha Veerabudren" }
+    ]
+  },
+  {
+    "tableName": "Paris",
+    "seatList": [
+      { "name": "Dashini Veerabudren" },
+      { "name": "Oyilen Veerabudren" },
+      { "name": "Manisha Veerabudren" }
+    ]
+  },
+  {
+    "tableName": "Tokyo",
+    "seatList": [
+      { "name": "Dashini Veerabudren" },
+      { "name": "Oyilen Veerabudren" },
+      { "name": "Manisha Veerabudren" }
+    ]
+  },
+  {
+    "tableName": "Toronto",
+    "seatList": [
+      { "name": "Dashini Veerabudren" },
+      { "name": "Oyilen Veerabudren" },
+      { "name": "Manisha Veerabudren" }
+    ]
+  }
+]
