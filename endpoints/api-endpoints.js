@@ -87,5 +87,5 @@ async function makeWish(req, res, next) {
     const wishObj = req.body.json();
     await db.makeWish(wishObj.wish, wishObj.isAdmin);
 
-    return res.status(200).end();
+    return res.status(201);
   }
