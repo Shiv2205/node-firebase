@@ -1,11 +1,16 @@
 const express = require("express");
-const CORS = require('./util/handleCORS');
+const util = require('./util/handleCORS');
 
 const apiEndpoints = require("./endpoints/api-endpoints");
 
 const app = express();
 
-app.use(CORS);
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', '*');//GET, POST, ...
+    res.setHeader('Access-Control-Allow-Headers', '*'); //Content-Type, Authorization
+    next();
+});
 
 app.use("/api-endpoints", apiEndpoints);
 
