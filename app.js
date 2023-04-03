@@ -11,7 +11,7 @@ app.use((req, res, next) => {
   res.removeHeader('x-powered-by');
   res.setHeader("Access-Control-Allow-Methods", req.method); //"GET,OPTIONS,POST,DELETE,PATCH,PUT"
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); //Content-Type, Authorization
-  res.status(200);
+  //res.status(200);
   next();
 });
 
