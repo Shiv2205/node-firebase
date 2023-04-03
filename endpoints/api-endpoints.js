@@ -84,11 +84,8 @@ async function fetchWishes(req, res, next) {
  */
 async function makeWish(req, res, next) {
     const filePath = path.join(rootPath, "wishes.json");
-    console.log(req.body);
-    return res.send(req.body);
-    // const response = await db.makeWish();
-    // fs.writeFile(filePath, JSON.stringify(response), (err) => {
-    //   if (err) console.log(err);
-    // });
-    // return res.status(201).json(response);
+    const wishObj = req.body.json();
+    await db.makeWish(wishObj.wish, wishObj.isAdmin);
+
+    return res.status(200).end();
   }
