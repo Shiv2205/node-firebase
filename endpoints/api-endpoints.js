@@ -6,15 +6,15 @@ const fs = require("fs");
 const router = express.Router();
 router.use(express.json());
 
-router.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", '*');
-  res.removeHeader('x-powered-by');
-  res.setHeader("Access-Control-Allow-Methods", req.method); //"GET,OPTIONS,POST,DELETE,PATCH,PUT"
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); //Content-Type, Authorization
-  //res.status(200);
-  next();
-});
+// router.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Credentials", true);
+//   res.setHeader("Access-Control-Allow-Origin", '*');
+//   res.removeHeader('x-powered-by');
+//   res.setHeader("Access-Control-Allow-Methods", req.method); //"GET,OPTIONS,POST,DELETE,PATCH,PUT"
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); //Content-Type, Authorization
+//   //res.status(200);
+//   next();
+// });
 
 // api-endpoints/fetchpics, GET method
 router.get("/fetchpics", fetchPictures);
@@ -94,8 +94,8 @@ async function fetchWishes(req, res, next) {
  */
 async function makeWish(req, res, next) {
     const filePath = path.join(rootPath, "wishes.json");
-    const wishObj = req.body.json();
+    const wishObj = req.body;
     await db.makeWish(wishObj.wish, wishObj.isAdmin);
 
-    return res.status(201);
+    return res.status(200).json(wishObj);
   }

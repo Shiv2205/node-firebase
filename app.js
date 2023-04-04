@@ -5,7 +5,7 @@ const apiEndpoints = require("./endpoints/api-endpoints");
 
 const app = express();
 
-app.use((req, res, next) => {
+app.all('/api-endpoints/*', (req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader("Access-Control-Allow-Origin", '*');
   res.removeHeader('x-powered-by');
