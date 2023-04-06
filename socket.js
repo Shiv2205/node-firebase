@@ -5,7 +5,7 @@ module.exports = {
     init: httpServer => {
         io = new Server(httpServer, {
             cors: {
-                origin: 'http://localhost:3000',
+                origin: 'https://wedding-app-ebon.vercel.app',
                 methods: ['GET', 'POST']
               }
         });
