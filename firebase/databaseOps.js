@@ -45,3 +45,16 @@ exports.makeWish = async (wishText, admin) => {
 
   return await firebase.update(databaseRef, updates);
 };
+
+exports.handleWishUpdate = async () => {
+  let update = [];
+  const wishRef = firebase.ref(db, "database/wishes");
+  firebase.onValue(wishRef, (snapshot) => {
+    const wishData = snapshot.val();
+    Object.keys(wishData).forEach((key) => {
+      update.push(wishData[key]);
+    });
+  });
+
+  return update;
+};

@@ -1,9 +1,12 @@
 const express = require("express");
-const util = require("./util/handleCORS");
+const helmet = require('helmet');
+const db = require('./firebase/databaseOps');
 
 const apiEndpoints = require("./endpoints/api-endpoints");
 
 const app = express();
+
+app.use(helmet());
 
 app.all('/api-endpoints/*', (req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
@@ -18,6 +21,20 @@ app.all('/api-endpoints/*', (req, res, next) => {
 app.use("/api-endpoints", apiEndpoints);
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`);
+});
+
+const io = require('./socket');
+serverSocket = io.init(server);
+serverSocket.on('connection', socket => {
+  
+  serverSocket.emit('connected', {msg: 'dummy'});
+  console.log('Client connected');
+
+  socket.on('wish_sent', async data => {
+    const wishList = await db.fetchWishes();
+    serverSocket.emit('wishUpdate', { wishes: wishList});
+    console.log('sent');
+  })
 });
