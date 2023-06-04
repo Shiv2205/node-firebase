@@ -1,11 +1,14 @@
 const { Server } = require('socket.io');
 let io;
+const dev_client = 'http://localhost:3000';
+const prod_client = 'https://wedding-app-ebon.vercel.app';
+const front_end = prod_client;
 
 module.exports = {
     init: httpServer => {
         io = new Server(httpServer, {
             cors: {
-                origin: 'https://wedding-app-ebon.vercel.app' || 'http://localhost:3000',
+                origin: front_end,
                 methods: ['GET', 'POST']
               }
         });
