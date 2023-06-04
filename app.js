@@ -8,9 +8,9 @@ const app = express();
 
 app.use(helmet());
 
-app.all('/api-endpoints/*', (req, res, next) => {
+app.all('/*', (req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", '*');
+  res.setHeader("Access-Control-Allow-Origin", 'https://wedding-app-ebon.vercel.app');
   res.removeHeader('x-powered-by');
   res.setHeader("Access-Control-Allow-Methods", req.method); //"GET,OPTIONS,POST,DELETE,PATCH,PUT"
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); //Content-Type, Authorization
